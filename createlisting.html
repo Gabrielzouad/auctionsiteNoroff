@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="garden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product page</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="relative h-screen">
+        <div class="relative pt-6 pb-16 sm:pb-24">
+          <div>
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+              <nav
+                class="relative flex items-center justify-between sm:h-10 md:justify-center"
+                aria-label="Global"
+              >
+                <div
+                  class="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0"
+                >
+                  <div class="flex w-full items-center justify-between md:w-auto">
+                    <a href="index.html">
+                      <span class="sr-only">Your Company</span>
+                      <img
+                        class="h-8 w-auto sm:h-10"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div
+                  id="userActions"
+                  class="hidden md:absolute md:inset-y-0 md:right-0 md:flex md:items-center md:justify-end gap-3"
+                >
+                  <span class="inline-flex rounded-md shadow" id="signUp">
+                    <a
+                      href="signUp.html"
+                      class="inline-flex items-center rounded-md border border-transparent bg-white px-4 py-2 text-base font-medium text-indigo-600 hover:bg-gray-50"
+                      >Sign up</a
+                    > </span
+                  ><span class="inline-flex rounded-md shadow" id="signIn">
+                    <a
+                      href="./signIn.html"
+                      class="inline-flex items-center rounded-md border border-transparent bg-green-500 px-4 py-2 text-base font-medium text-white"
+                      >Log in</a
+                    >
+                  </span>
+                  <span class="hidden rounded-md shadow" id="profile">
+                    <a
+                      href="profile.html"
+                      class="inline-flex items-center rounded-md border border-transparent bg-white px-4 py-2 text-base font-medium text-indigo-600 hover:bg-gray-50"
+                      >Profile</a
+                    >
+                  </span>
+                  <span class="hidden rounded-md shadow" id="signOutButton">
+                    <a
+                      href="./index.html"
+                      class="inline-flex items-center rounded-md border border-transparent bg-green-500 px-4 py-2 text-base font-medium text-white"
+                      >Sign Out</a
+                    >
+                  </span>
+                </div>
+              </nav>
+            </div>
+          </div>
+  
+    <main
+      class="bg-white flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="w-full max-w-md space-y-8">
+        <div class="mt-4">
+          <h1
+            class="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl"
+            id="itemHeader"
+          >
+            Sell your item!
+          </h1>
+        </div>
+        <section aria-labelledby="information-heading" class="mt-4">
+          <form>
+            <div class="mt-10">
+              <div>
+                <label for="ItemName" class="sr-only"
+                  >What are you selling?</label
+                >
+                <input
+                  id="itemNameInput"
+                  name="name"
+                  required
+                  class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="What are you selling?"
+                />
+              </div>
+              <div>
+                <label for="description" class="sr-only">Description</label>
+                <input
+                  id="descriptionInput"
+                  type="text"
+                  class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Description"
+                />
+              </div>
+              <div>
+                <label for="category" class="sr-only"
+                  >what category is your item?</label
+                >
+                <input
+                  id="categoryInput"
+                  name="category"
+                  class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Item category"
+                />
+              </div>
+              <div>
+                <label for="Image" class="sr-only">Image for your item</label>
+                <input
+                  id="imageInput"
+                  name="image"
+                  class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Image URL"
+                />
+              </div>
+              <div>
+                <label for="time" class="sr-only"
+                  >Set the time for your bidding</label
+                >
+                <input
+                  type="datetime-local"
+                  id="timeInput"
+                  name="amount"
+                  required
+                  class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Image URL"
+                />
+              </div>
+              <div class="mt-10">
+                <button
+                  id="createListingButton"
+                  class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                >
+                  Create new listing
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="src/js/listings/createlisting.js"></script>
+    <script type="module" src="src/js/api/getUser.js"></script>
+  </body>
+</html>

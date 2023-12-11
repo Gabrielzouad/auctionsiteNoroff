@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-white flex-none">
+      <div
+        class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+      >
+        <div class="lg:max-w-lg lg:self-end">
+          <div class="mt-4">
+            <h1
+              class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              id="itemHeader"
+            ></h1>
+          </div>
+          <section aria-labelledby="information-heading" class="mt-4">
+            <div class="flex items-center">
+              <p
+                class="text-lg text-gray-900 sm:text-xl"
+                id="itemCurrentBid"
+              ></p>
+            </div>
+            <div class="mt-4 space-y-6">
+              <p class="text-base text-gray-500" id="itemDescription"></p>
+            </div>
+            <div>
+              <p class="text-base" id="itemTimeLeft"></p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Product image -->
+        <div class="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
+          <div class="aspect-w-1 aspect-h-1 rounded-lg" id="itemImageContainer">
+            <img src="" class="h-full w-full object-cover object-center" />
+          </div>
+        </div>
+
+        <!-- Product form -->
+        <div
+          class="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start"
+        >
+          <div>
+            <label for="bid-amount" class="sr-only"
+              >Amount you want to bid</label
+            >
+            <input
+              id="bid-amount"
+              name="amount"
+              required
+              class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              placeholder="bid amount"
+            />
+          </div>
+          <div class="mt-10">
+            <button
+              id="addBiddingButton"
+              class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+            >
+              Add bidding
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/js/listings/getlistingById.js" type="module"></script>
+  </body>
+</html>

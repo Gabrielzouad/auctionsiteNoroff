@@ -8,6 +8,8 @@ module.exports = {
     './shop.html',
     './productpage.html',
     './profile.html',
+    './createlisting.html',
+    './listing.html',
   ],
   theme: {
     extend: {},
