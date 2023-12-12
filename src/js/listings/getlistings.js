@@ -27,7 +27,7 @@ nextButtonDOM.addEventListener('click', async () => {
 async function fetchAndRenderListings(query) {
   try {
     const response = await fetch(
-      `${apiUrl}/auction/listings?sortOrder=asc&_active=true&limit=50&offset=${offset}`,
+      `${apiUrl}/auction/listings?sortOrder=asc&_active=true&limit=100&offset=${offset}`,
       options
     );
 
