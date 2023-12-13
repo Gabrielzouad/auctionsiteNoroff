@@ -20,3 +20,9 @@ export function formatRemainingTime(endDate) {
 
   return `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
 }
+
+export function displayError(message) {
+  const errorContainerDOM = document.getElementById('errorContainer');
+  errorContainerDOM.innerHTML = message;
+  errorContainerDOM.style.display = 'block';
+}

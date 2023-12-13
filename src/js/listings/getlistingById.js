@@ -1,5 +1,9 @@
 import { apiUrl } from '../util/parameter.mjs';
-import { formatRemainingTime, getHighestBid } from '../util/util.js';
+import {
+  displayError,
+  formatRemainingTime,
+  getHighestBid,
+} from '../util/util.js';
 
 const bearerToken = localStorage.getItem('accessToken');
 const itemHeaderDOM = document.getElementById('itemHeader');
@@ -47,7 +51,7 @@ async function postBid(bearerToken, apiUrl, id) {
   const price = parseInt(priceInput.value, 10);
 
   if (isNaN(price)) {
-    console.error('Invalid bid amount: not a number');
+    displayError('Invalid bid amount: not a number');
     return;
   }
 
@@ -62,15 +66,18 @@ async function postBid(bearerToken, apiUrl, id) {
     });
 
     if (!bidResponse.ok) {
-      throw new Error('Failed to place bid');
+      const errorData = await bidResponse.json();
+      const errorMessage =
+        errorData.errors && errorData.errors.length > 0
+          ? errorData.errors[0].message
+          : 'Failed to place bid';
+      throw new Error(errorMessage);
     }
 
-    // Re-fetch the updated auction listing data
     await updateAuctionListing(bearerToken, apiUrl, id);
-    // Clear the bid input field
     priceInput.value = '';
   } catch (error) {
-    console.error('Error placing bid:', error);
+    displayError('Error placing bid: ' + error.message);
   }
 }
 
@@ -88,7 +95,8 @@ async function updateAuctionListing(bearerToken, apiUrl, id) {
     // Update the UI with the new data
     displayAuctionListing(updatedData);
   } catch (error) {
-    console.error('Error updating auction listing:', error);
+    displayError('Error updating auction listing: ' + error.message);
+    console.log(error);
   }
 }
 

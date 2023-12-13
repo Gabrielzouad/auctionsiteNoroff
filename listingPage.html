@@ -7,18 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="bg-white flex-none">
+    <div class="bg-white flex">
       <div
         class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
       >
         <div class="lg:max-w-lg lg:self-end">
-          <div class="mt-4">
-            <h1
-              class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-              id="itemHeader"
-            ></h1>
-          </div>
           <section aria-labelledby="information-heading" class="mt-4">
+            <div class="mt-4">
+              <h1
+                class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+                id="itemHeader"
+              ></h1>
+            </div>
             <div class="flex items-center">
               <p
                 class="text-lg text-gray-900 sm:text-xl"
@@ -26,7 +26,10 @@
               ></p>
             </div>
             <div class="mt-4 space-y-6">
-              <p class="text-base text-gray-500" id="itemDescription"></p>
+              <p
+                class="text-base text-gray-500 overflow-wrap break-words"
+                id="itemDescription"
+              ></p>
             </div>
             <div>
               <p class="text-base" id="itemTimeLeft"></p>
@@ -53,6 +56,7 @@
               placeholder="bid amount"
             />
           </div>
+          <div id="errorContainer" class="hidden text-red-600"></div>
           <div class="mt-10">
             <button
               id="addBiddingButton"

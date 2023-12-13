@@ -33,8 +33,14 @@ async function fetchAndRenderListings(query) {
 
     if (response.ok) {
       const data = await response.json();
-      listingsDOM.innerHTML = '';
 
+      if (data.length === 0) {
+        // If no listings are returned, display a message
+        listingsDOM.innerHTML = '<p>No listings available for your search.</p>';
+        return; // Exit the function early
+      }
+
+      listingsDOM.innerHTML = '';
       data.forEach((listing) => {
         if (
           listing.title.toLowerCase().includes(query) &&
@@ -55,11 +61,18 @@ async function fetchAndRenderListings(query) {
             </a>`;
         }
       });
+
+      if (listingsDOM.innerHTML === '') {
+        // Display the message if no listings match the query
+        listingsDOM.innerHTML = '<p>No listings available for your search.</p>';
+      }
     } else {
       console.error('Failed to fetch listings:', response.status);
+      displayError('Failed to fetch listings.');
     }
   } catch (error) {
     console.error('Error fetching listings:', error);
+    displayError('Error fetching listings.');
   }
 }
 
