@@ -35,10 +35,10 @@ async function updateProfileDOM() {
       const hasAvatar = profileData.avatar !== null;
 
       profileDOM.innerHTML = `
-        <span class="flex flex-row-reverse items-center rounded-md shadow">
-          <p class="mx-auto px-4 py-2 text-base font-medium">Credits</p>
-          <p class="mx-auto px-4 py-2 text-base font-medium">${credits}</p>
-          <p class="mx-auto px-4 py-2 text-base font-medium">${
+        <div class="flex items-center rounded-md shadow md:flex-row-reverse">
+          <p class="hidden mx-auto px-4 py-2 text-base font-medium md:flex">Credits</p>
+          <p class="hidden mx-auto px-4 py-2 text-base font-medium md:flex">${credits}</p>
+          <p class="mx-auto px-4 py-2 text-base font-medium md:flex">${
             profileData.name
           }</p>
           <a href="/profile.html" class="inline-flex items-center rounded-md border border-transparent bg-white px-4 py-2 text-base font-medium text-indigo-600 hover:bg-gray-50">
@@ -46,13 +46,11 @@ async function updateProfileDOM() {
               ${
                 hasAvatar
                   ? `<img src="${profileData.avatar}" alt="Avatar"></img>`
-                  : `<svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                              </svg>`
+                  : `<img src="/public/icons/icons8-user-50.png" alt="Avatar"></img>`
               }
             </span>
           </a>
-        </span>`;
+        </div>`;
 
       profileDOM.classList.remove('hidden');
       signOutUserButton.classList.remove('hidden');
